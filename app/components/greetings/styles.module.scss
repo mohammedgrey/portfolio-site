@@ -1,0 +1,88 @@
+.upperBlock {
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.frameContainer {
+  position: relative;
+  width: 627px;
+  max-width: 100%;
+  height: 100%;
+}
+
+.imageMe {
+  height: 100px;
+  width: 90px;
+  position: absolute;
+  top: 36px;
+  left: 56px;
+}
+
+.imageFrame {
+  height: 165px;
+  width: 121px;
+  position: absolute;
+  top: -15px;
+  left: 40px;
+  filter: brightness(0.5);
+}
+
+.homeInfo {
+  position: absolute;
+  top: 125px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.laptopTitle {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-block: 4px;
+}
+
+.laptopText {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media only screen and (max-width: 700px) {
+  .home {
+    padding: 20px;
+    padding-bottom: 60px;
+  }
+
+  .homeInfo {
+    position: absolute;
+    top: 225px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .upperBlock {
+    height: 400px;
+    display: block;
+    text-align: center;
+  }
+
+  .imageMe {
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .imageFrame {
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
