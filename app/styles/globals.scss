@@ -1,0 +1,46 @@
+// @import "./colors/light.scss";
+@use "./colors/dark.scss" as dark;
+@use "./colors/light.scss" as light;
+@use "./colors/common.scss" as common;
+
+:root {
+  @each $color, $value in light.$colors {
+    --#{$color}: #{$value};
+  }
+  @each $color, $value in common.$colors {
+    --#{$color}: #{$value};
+  }
+}
+
+[data-theme="dark"] {
+  @each $color, $value in dark.$colors {
+    --#{$color}: #{$value};
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  color: var(--text-color);
+  background-color: var(--background-color);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.layout-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}

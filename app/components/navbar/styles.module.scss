@@ -1,0 +1,29 @@
+.nav {
+  margin: 16px auto;
+  background-color: var(--card-color);
+  padding: 8px 16px;
+  border-radius: 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.navItem {
+  padding: 8px 16px;
+  border-radius: 16px;
+  background-color: var(--background-color);
+  min-width: 80px;
+  text-align: center;
+}
+
+.navIcon {
+  font-size: 2rem;
+  cursor: pointer;
+}

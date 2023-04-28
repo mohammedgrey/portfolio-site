@@ -14,16 +14,19 @@ export default function Greetings() {
         backgroundPositionY: "bottom",
       }}
     >
-      <motion.div
-        initial={{ scale: 0, x: -90 }}
-        animate={{ scale: 1 }}
-        transition={{ type: "spring" }}
-        className={styles.homeInfo}
-      >
-        <p className={styles.laptopText}>Hello, I am</p>
-        <h1 className={styles.laptopTitle}>Mohammed Saad</h1>
-        <p className={styles.laptopText}>A Software Engineer </p>
-      </motion.div>
+      <div className={styles.laptopBackground}>
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring" }}
+          className={styles.homeInfo}
+        >
+          <p className={styles.laptopText}>Hello, I am</p>
+          <h1 className={styles.laptopTitle}>Mohammed Saad</h1>
+          <p className={styles.laptopText}>A Software Engineer </p>
+        </motion.div>
+      </div>
+
       <div className={styles.frameContainer}>
         <Image
           className={styles.imageFrame}

@@ -33,10 +33,17 @@
 }
 
 .homeInfo {
+  text-align: center;
+}
+
+.laptopBackground {
   position: absolute;
-  top: 125px;
+  top: 97px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(calc(-50% + 1px));
+  background-color: var(--card-color);
+  width: 210px;
+  height: 132px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,11 +68,8 @@
     padding-bottom: 60px;
   }
 
-  .homeInfo {
-    position: absolute;
-    top: 225px;
-    left: 50%;
-    transform: translateX(-50%);
+  .laptopBackground {
+    top: 197px;
   }
 
   .upperBlock {
