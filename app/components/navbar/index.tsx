@@ -1,5 +1,4 @@
 import Link from "next/link";
-import LanguageButton from "./languageButton";
 import styles from "./styles.module.scss";
 import ThemeButton from "./themeButton";
 
@@ -13,7 +12,6 @@ export default function Navbar() {
     <nav className={styles.nav}>
       <div className={styles.navItems}>
         <ThemeButton />
-        <LanguageButton />
       </div>
       <ul className={styles.navItems}>
         {links.map(({ href, text }) => (

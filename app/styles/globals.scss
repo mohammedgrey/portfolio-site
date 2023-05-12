@@ -1,7 +1,8 @@
-// @import "./colors/light.scss";
 @use "./colors/dark.scss" as dark;
 @use "./colors/light.scss" as light;
 @use "./colors/common.scss" as common;
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700;900&display=swap");
 
 :root {
   @each $color, $value in light.$colors {
@@ -18,15 +19,18 @@
   }
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 body {
   color: var(--text-color);
   background-color: var(--background-color);
+  font-family: "Raleway", sans-serif;
 }
 
 a {
@@ -43,4 +47,28 @@ ul {
 .layout-container {
   max-width: 1200px;
   margin: 0 auto;
+  padding-inline: 16px;
+}
+
+.description {
+  color: var(--description-color);
+}
+.title {
+  color: var(--title-color);
+}
+
+.center-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.grow {
+  flex-grow: 1;
 }

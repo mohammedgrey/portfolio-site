@@ -1,3 +1,4 @@
+import Light from "./components/greetings/components/light";
 import Navbar from "./components/navbar";
 import "@/styles/globals.scss";
 
@@ -15,7 +16,10 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="layout-container">
-          <Navbar />
+          <div style={{ marginBlock: "16px" }}>
+            <Navbar />
+            <Light />
+          </div>
           {children}
         </div>
       </body>

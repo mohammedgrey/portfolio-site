@@ -1,47 +1,34 @@
 "use client";
-import Image from "next/image";
 import styles from "./styles.module.scss";
 import { motion } from "framer-motion";
+import Laptop from "./components/laptop/component";
+import Frame from "./components/frame";
+import Books from "./components/books/component";
+import Desk from "./components/desk/component";
 
 export default function Greetings() {
   return (
     <div
-      className={styles.upperBlock}
       style={{
-        backgroundImage: `url("/assets/images/background.jpg")`,
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-        backgroundPositionY: "bottom",
+        backgroundColor: "var(--card-color)",
+        padding: "32px",
+        borderRadius: "16px",
+        minHeight: "400px",
+        position: "relative",
       }}
     >
-      <div className={styles.laptopBackground}>
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ type: "spring" }}
-          className={styles.homeInfo}
-        >
-          <p className={styles.laptopText}>Hello, I am</p>
-          <h1 className={styles.laptopTitle}>Mohammed Saad</h1>
-          <p className={styles.laptopText}>A Software Engineer </p>
-        </motion.div>
-      </div>
-
-      <div className={styles.frameContainer}>
-        <Image
-          className={styles.imageFrame}
-          src={"/assets/images/frame.png"}
-          alt="hello"
-          height="165"
-          width="121"
-        />
-        <Image
-          className={styles.imageMe}
-          src={"/assets/images/me.png"}
-          alt="hello"
-          height="100"
-          width="90"
-        />
+      <div className="space-between">
+        <Frame />
+        <div style={{ translate: "0px 100px", zIndex: 6 }}>
+          <Laptop>
+            <div className={styles["input-wrapper"]}>
+              <span data-typed="hello" className={styles.placeholder}></span>
+            </div>
+          </Laptop>
+        </div>
+        <div style={{ position: "relative", zIndex: 5 }}>
+          <Books />
+        </div>
       </div>
     </div>
   );

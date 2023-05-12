@@ -1,92 +1,28 @@
-.upperBlock {
-  height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 10px;
-  overflow: hidden;
-  position: relative;
-}
-
-.frameContainer {
-  position: relative;
-  width: 627px;
-  max-width: 100%;
-  height: 100%;
-}
-
-.imageMe {
-  height: 100px;
-  width: 90px;
-  position: absolute;
-  top: 36px;
-  left: 56px;
-}
-
-.imageFrame {
-  height: 165px;
-  width: 121px;
-  position: absolute;
-  top: -15px;
-  left: 40px;
-  filter: brightness(0.5);
-}
-
-.homeInfo {
-  text-align: center;
-}
-
-.laptopBackground {
-  position: absolute;
-  top: 97px;
-  left: 50%;
-  transform: translateX(calc(-50% + 1px));
-  background-color: var(--card-color);
-  width: 210px;
-  height: 132px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.laptopTitle {
-  font-size: 1.3rem;
-  text-transform: uppercase;
-  font-weight: 500;
-  margin-block: 4px;
-}
-
-.laptopText {
-  font-size: 1rem;
-  font-weight: 600;
-}
-
-@media only screen and (max-width: 700px) {
-  .home {
-    padding: 20px;
-    padding-bottom: 60px;
-  }
-
-  .laptopBackground {
-    top: 197px;
-  }
-
-  .upperBlock {
-    height: 400px;
+@use "../../styles/typed.scss" as type;
+.input-wrapper {
+  display: block;
+  font-family: monospace;
+  font-size: 125%;
+  width: 75%;
+  > .placeholder {
     display: block;
-    text-align: center;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
   }
-
-  .imageMe {
-    top: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .imageFrame {
-    top: -20px;
-    left: 50%;
-    transform: translateX(-50%);
+  > .placeholder {
+    pointer-events: none;
+    @include type.typed(
+      "Welcome to my Portfolio",
+      "I am Mohammed Saad",
+      "A Software Engineer",
+      1.5,
+      (
+        caret-width: 2px,
+        caret-space: 2px,
+      )
+    );
   }
 }
