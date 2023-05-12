@@ -1,8 +1,8 @@
 "use client";
 import useTheme from "@/hooks/useTheme";
-import styles from "./styles.module.scss";
+import styles from "../styles.module.scss";
 import { CiDark } from "react-icons/ci";
-import { Theme } from "@/types/common";
+import { Theme } from "@/types";
 import { MdLightMode } from "react-icons/md";
 
 export default function ThemeButton() {

@@ -1,6 +1,6 @@
 import { persist } from "zustand/middleware";
 import { create } from "zustand";
-import { Locale, Theme } from "@/types/common";
+import { Locale, Theme } from "@/types";
 
 type PreferencesStoreType = {
   locale: Locale;

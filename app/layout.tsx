@@ -1,6 +1,6 @@
-import Light from "./components/greetings/components/light";
-import Navbar from "./components/navbar";
 import "@/styles/globals.scss";
+import Navbar from "components/Navbar/Navbar";
+import Light from "components/Home/components/Light/Light";
 
 export const metadata = {
   title: "Create Next App",

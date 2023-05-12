@@ -1,12 +1,11 @@
 "use client";
 import styles from "./styles.module.scss";
-import { motion } from "framer-motion";
-import Laptop from "./components/laptop/component";
-import Frame from "./components/frame";
-import Books from "./components/books/component";
-import Desk from "./components/desk/component";
+import Frame from "./components/Frame/Frame";
+import Laptop from "./components/Laptop/Laptop";
+import Books from "./components/Books/Books";
+import StickyNote from "./components/StickyNote/StickyNote";
 
-export default function Greetings() {
+export default function Home() {
   return (
     <div
       style={{
@@ -28,6 +27,7 @@ export default function Greetings() {
         </div>
         <div style={{ position: "relative", zIndex: 5 }}>
           <Books />
+          <StickyNote>Skills, Technologies & Frameworks</StickyNote>
         </div>
       </div>
     </div>

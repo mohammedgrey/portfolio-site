@@ -1,9 +1,8 @@
-import { classNames } from "@/utils/helpers";
+import { classNames } from "@/helpers";
 import styles from "./styles.module.scss";
 import React, { FC, Fragment, useEffect, useRef, useState } from "react";
 import { blocks, bookStart, books } from "./data";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
-import StickyNote from "./sickyNote";
 
 const BookTitle: FC<{ index: number }> = ({ index }) => {
   const [titleIndex, setTitleIndex] = useState(-1);
@@ -117,7 +116,6 @@ function Books() {
           value="Place Back"
         />
       </form>
-      <StickyNote>Skills, Technologies & Frameworks</StickyNote>
     </div>
   );
 }

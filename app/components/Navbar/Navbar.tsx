@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./styles.module.scss";
-import ThemeButton from "./themeButton";
+import ThemeButton from "./components/ThemeButton";
 
 export default function Navbar() {
   const links = [

@@ -1,5 +1,5 @@
 import usePreferencesStore from "@/stores/usePreferencesStore";
-import { Theme } from "@/types/common";
+import { Theme } from "@/types";
 import { useEffect } from "react";
 
 const useTheme = () => {

@@ -1,13 +1,9 @@
-import Frameworks from "./components/frameworks/component";
-import Greetings from "./components/greetings/component";
+import Home from "components/Home/Home";
 
 export default function HomePage() {
   return (
     <main>
-      <section>
-        <Greetings />
-      </section>
-      <section>{/* <Frameworks /> */}</section>
+      <Home />
     </main>
   );
 }

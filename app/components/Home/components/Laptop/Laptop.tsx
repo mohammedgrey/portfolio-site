@@ -3,7 +3,7 @@ import Image from "next/image";
 import images from "@/configs/images";
 import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
-import { classNames } from "@/utils/helpers";
+import { classNames } from "@/helpers";
 type Props = {
   children: ReactNode;
   scale?: number;
