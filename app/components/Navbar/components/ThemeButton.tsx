@@ -1,12 +1,38 @@
 "use client";
+import rives from "@/configs/rives";
 import useTheme from "@/hooks/useTheme";
-import styles from "../styles.module.scss";
-import { CiDark } from "react-icons/ci";
+import useUpdateEffect from "@/hooks/useUpdateEffect";
 import { Theme } from "@/types";
-import { MdLightMode } from "react-icons/md";
+import { useRive } from "rive-react";
 
 export default function ThemeButton() {
   const { theme, toggleTheme } = useTheme();
-  const Icon = theme === Theme.DARK ? MdLightMode : CiDark;
-  return <Icon onClick={toggleTheme} className={styles.navIcon} />;
+
+  const { rive, RiveComponent } = useRive({
+    src: rives.switches.darkLight,
+    animations: theme === Theme.LIGHT ? "idllOff" : "idllOn",
+    autoplay: false,
+  });
+
+  useUpdateEffect(() => {
+    rive?.play(theme === Theme.LIGHT ? ["Off", "idllOff"] : ["On", "idllOn"]);
+  }, [theme, rive]);
+
+  return (
+    <div
+      className="center-content"
+      style={{ overflow: "hidden", height: "50px" }}
+    >
+      <RiveComponent
+        style={{
+          height: "80px",
+          width: "80px",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          toggleTheme();
+        }}
+      />
+    </div>
+  );
 }

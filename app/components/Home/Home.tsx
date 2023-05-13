@@ -7,15 +7,7 @@ import StickyNote from "./components/StickyNote/StickyNote";
 
 export default function Home() {
   return (
-    <div
-      style={{
-        backgroundColor: "var(--card-color)",
-        padding: "32px",
-        borderRadius: "16px",
-        minHeight: "400px",
-        position: "relative",
-      }}
-    >
+    <div className={styles["home-container"]}>
       <div className="space-between">
         <Frame />
         <div style={{ translate: "0px 100px", zIndex: 6 }}>
@@ -25,9 +17,11 @@ export default function Home() {
             </div>
           </Laptop>
         </div>
-        <div style={{ position: "relative", zIndex: 5 }}>
+        <div
+          style={{ position: "relative", zIndex: 5, paddingBlockStart: "32px" }}
+        >
           <Books />
-          <StickyNote>Skills, Technologies & Frameworks</StickyNote>
+          {/* <StickyNote>Skills, Technologies & Frameworks</StickyNote> */}
         </div>
       </div>
     </div>

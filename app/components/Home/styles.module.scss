@@ -1,4 +1,13 @@
 @use "../../styles/typed.scss" as type;
+
+.home-container {
+  background-color: var(--card-color);
+  padding: 32px;
+  border-radius: 16px;
+  min-height: 450px;
+  position: relative;
+}
+
 .input-wrapper {
   display: block;
   font-family: monospace;

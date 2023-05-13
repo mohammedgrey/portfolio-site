@@ -12,7 +12,7 @@ dependencies:
     version: 10.6.0(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: ^13.4.2
-    version: 13.4.2(react-dom@18.2.0)(react@18.2.0)(sass@1.60.0)
+    version: 13.4.2(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -22,9 +22,12 @@ dependencies:
   react-icons:
     specifier: ^4.8.0
     version: 4.8.0(react@18.2.0)
+  rive-react:
+    specifier: ^3.0.47
+    version: 3.0.47(react@18.2.0)
   sass:
-    specifier: ^1.60.0
-    version: 1.60.0
+    specifier: ^1.62.1
+    version: 1.62.1
   three:
     specifier: ^0.151.3
     version: 0.151.3
@@ -408,6 +411,14 @@ packages:
       suspend-react: 0.0.8(react@18.2.0)
       three: 0.151.3
       zustand: 3.7.2(react@18.2.0)
+    dev: false
+
+  /@rive-app/canvas@1.1.6:
+    resolution: {integrity: sha512-WnYGPXPX/0kLuqlVn47qRd0rGNttonBErwc/IMIk4C8rDGd3TQ3ZsxNPppgWiTw8JoJkNwgjIDrCuBe5Ig6u/Q==}
+    dev: false
+
+  /@rive-app/webgl@1.1.6:
+    resolution: {integrity: sha512-mehfz+JsukosJDBdCrOcRmPeB2VNcf8Ao0Ncced4EJzSJfzs6uE/Ja4myWN5s/OxlgIJo3CP8m8k0M0o1/UMfw==}
     dev: false
 
   /@rushstack/eslint-patch@1.2.0:
@@ -1936,7 +1947,7 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /next@13.4.2(react-dom@18.2.0)(react@18.2.0)(sass@1.60.0):
+  /next@13.4.2(react-dom@18.2.0)(react@18.2.0)(sass@1.62.1):
     resolution: {integrity: sha512-aNFqLs3a3nTGvLWlO9SUhCuMUHVPSFQC0+tDNGAsDXqx+WJDFSbvc233gOJ5H19SBc7nw36A9LwQepOJ2u/8Kg==}
     engines: {node: '>=16.8.0'}
     hasBin: true
@@ -1964,7 +1975,7 @@ packages:
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-      sass: 1.60.0
+      sass: 1.62.1
       styled-jsx: 5.1.1(react@18.2.0)
       zod: 3.21.4
     optionalDependencies:
@@ -2300,6 +2311,16 @@ packages:
       glob: 7.2.3
     dev: true
 
+  /rive-react@3.0.47(react@18.2.0):
+    resolution: {integrity: sha512-Cme2tkuZq+J5tYtU02bLwBq4yA5HEU4hTUrOnYcG/2wrc75hDPkA1UyNFc6VpTmWcKp6e0FOq+X3vnxw1NZ0xg==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@rive-app/canvas': 1.1.6
+      '@rive-app/webgl': 1.1.6
+      react: 18.2.0
+    dev: false
+
   /run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
     dependencies:
@@ -2314,9 +2335,9 @@ packages:
       is-regex: 1.1.4
     dev: true
 
-  /sass@1.60.0:
-    resolution: {integrity: sha512-updbwW6fNb5gGm8qMXzVO7V4sWf7LMXnMly/JEyfbfERbVH46Fn6q02BX7/eHTdKpE7d+oTkMMQpFWNUMfFbgQ==}
-    engines: {node: '>=12.0.0'}
+  /sass@1.62.1:
+    resolution: {integrity: sha512-NHpxIzN29MXvWiuswfc1W3I0N8SXBd8UR26WntmDlRYf0bSADnwnOjsyMZ3lMezSlArD33Vs3YFhp7dWvL770A==}
+    engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
       chokidar: 3.5.3

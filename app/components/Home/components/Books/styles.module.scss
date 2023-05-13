@@ -17,7 +17,7 @@ $cntntFontSize: $sqSize * 0.7;
 
 // non-book colors
 $btnColor: black;
-$shelfColor: rgb(94, 94, 94);
+$shelfColor: var(--wood-color);
 $shelfShadowColor: #000;
 
 /* Block placement */
@@ -152,7 +152,7 @@ $blocks:
       &.back,
       &.bottom {
         background: {
-          color: var(--background-color);
+          color: var(--paper-color);
           image: repeating-linear-gradient(
             90deg,
             transparent,
@@ -180,27 +180,6 @@ $blocks:
   display: none;
   &:checked ~ input[type="reset"] {
     visibility: visible;
-  }
-}
-.input[type="reset"] {
-  background-color: $btnColor;
-  border: 0;
-  border-radius: 0;
-  color: #fff;
-  padding: 0.5em 0.75em;
-  bottom: 5%;
-  left: 50%;
-  visibility: hidden;
-  transform: translateX(-50%);
-  transition: background-color 0.2s;
-  -webkit-appearance: none;
-  appearance: none;
-  &:hover,
-  &:focus {
-    background-color: $btnColor;
-  }
-  &:active {
-    background-color: $btnColor;
   }
 }
 
@@ -307,12 +286,12 @@ $blocks:
   height: $sqSize;
 }
 .cover {
-  background-color: var(--background-color);
+  background-color: var(--paper-color);
 }
 .contents {
   font-size: $cntntFontSize;
   padding: $sqSize;
-  background-color: var(--background-color);
+  background-color: var(--paper-color);
 
   h1 {
     font-size: 2em;

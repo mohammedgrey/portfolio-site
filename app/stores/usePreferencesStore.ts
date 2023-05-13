@@ -16,7 +16,6 @@ const usePreferencesStore = create<PreferencesStoreType>()(
       locale: Locale.EN,
       setLocale: (locale) => set({ locale }),
       theme:
-        // typeof window !== "undefined" &&
         window.matchMedia &&
         window.matchMedia("(prefers-color-scheme: dark)").matches
           ? Theme.DARK

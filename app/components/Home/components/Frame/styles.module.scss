@@ -1,0 +1,21 @@
+.frameContainer {
+  position: relative;
+}
+
+.image {
+  transition: all 700ms;
+}
+
+.frameContainer:hover .image {
+  transition: all 700ms;
+  scale: 1.15;
+}
+
+.imageContainer {
+  width: 112px;
+  height: 125px;
+  overflow: hidden;
+  position: absolute;
+  top: 60px;
+  left: 20px;
+}
