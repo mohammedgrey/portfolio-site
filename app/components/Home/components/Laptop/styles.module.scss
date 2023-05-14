@@ -53,6 +53,13 @@
   backface-visibility: hidden;
 }
 
+[data-theme="dark"] {
+  .mockup .image {
+    filter: invert(31%) sepia(21%) saturate(0%) hue-rotate(171deg)
+      brightness(102%) contrast(98%);
+  }
+}
+
 .mockup .part .cover {
   position: relative;
 }
@@ -93,7 +100,7 @@
   z-index: 4;
   overflow: hidden;
   padding: 8px;
-  background-color: var(--background-color);
+  background-color: var(--laptop-color);
   display: flex;
   flex-direction: column;
   justify-content: center;

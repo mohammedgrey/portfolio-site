@@ -34,6 +34,9 @@ dependencies:
   typescript:
     specifier: 5.0.2
     version: 5.0.2
+  uuid:
+    specifier: ^9.0.0
+    version: 9.0.0
   zustand:
     specifier: ^4.3.7
     version: 4.3.7(react@18.2.0)
@@ -51,6 +54,9 @@ devDependencies:
   '@types/three':
     specifier: ^0.150.1
     version: 0.150.1
+  '@types/uuid':
+    specifier: ^9.0.1
+    version: 9.0.1
   eslint:
     specifier: 8.36.0
     version: 8.36.0
@@ -484,6 +490,10 @@ packages:
       '@types/webxr': 0.5.1
       fflate: 0.6.10
       lil-gui: 0.17.0
+
+  /@types/uuid@9.0.1:
+    resolution: {integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==}
+    dev: true
 
   /@types/webxr@0.5.1:
     resolution: {integrity: sha512-xlFXPfgJR5vIuDefhaHuUM9uUgvPaXB6GKdXy2gdEh8gBWQZ2ul24AJz3foUd8NNKlSTQuWYJpCb1/pL81m1KQ==}
@@ -2683,6 +2693,11 @@ packages:
   /utility-types@3.10.0:
     resolution: {integrity: sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==}
     engines: {node: '>= 4'}
+    dev: false
+
+  /uuid@9.0.0:
+    resolution: {integrity: sha512-MXcSTerfPa4uqyzStbRoTgt5XIe3x5+42+q1sDuy3R5MDk66URdLMOZe5aPX/SQd+kuYAh0FdP/pO28IkQyTeg==}
+    hasBin: true
     dev: false
 
   /webgl-constants@1.1.1:

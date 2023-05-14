@@ -1,7 +1,10 @@
+import Projects from "./components/Projects/Projects";
+import { projects } from "./data/projects";
+
 export default function ProjectsPage() {
   return (
     <div>
-      <p>Projects</p>
+      <Projects projects={projects} />
     </div>
   );
 }

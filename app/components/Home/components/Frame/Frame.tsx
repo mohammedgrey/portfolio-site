@@ -11,6 +11,7 @@ export default function Frame() {
         src={images.home.frame.outline}
         width={150}
         height={200}
+        className={styles.frame}
       />
       <div className={styles.imageContainer}>
         <Image

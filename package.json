@@ -20,6 +20,7 @@
     "sass": "^1.62.1",
     "three": "^0.151.3",
     "typescript": "5.0.2",
+    "uuid": "^9.0.0",
     "zustand": "^4.3.7"
   },
   "devDependencies": {
@@ -27,6 +28,7 @@
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
     "@types/three": "^0.150.1",
+    "@types/uuid": "^9.0.1",
     "eslint": "8.36.0",
     "eslint-config-next": "13.2.4"
   }
