@@ -17,7 +17,7 @@ export const projects: ProjectType[] = [
         both: "https://github.com/mohammedgrey/Search-Engine",
       },
       API: "https://lookme-up.herokuapp.com/",
-      PDF: "SearchEngine.pdf",
+      PDF: "/assets/pdfs/SearchEngine.pdf",
     },
   },
   {
@@ -55,7 +55,7 @@ export const projects: ProjectType[] = [
         "https://res.cloudinary.com/dxome9kh1/image/upload/v1623334296/Portfolio/EgySchoolsCarousel%20/5_exwbhs.png",
         "https://res.cloudinary.com/dxome9kh1/image/upload/v1623334296/Portfolio/EgySchoolsCarousel%20/6_nmnqcl.png",
       ],
-      PDF: "Datatec.pdf",
+      PDF: "/assets/pdfs/Datatec.pdf",
     },
   },
   {
@@ -119,7 +119,7 @@ export const projects: ProjectType[] = [
         both: "https://github.com/MoaazZaki/grade_auto_filler",
       },
 
-      PDF: "ImageProcessing.pdf",
+      PDF: "/assets/pdfs/ImageProcessing.pdf",
     },
   },
   {
@@ -135,7 +135,7 @@ export const projects: ProjectType[] = [
       git: {
         both: "https://github.com/MoaazZaki/HarvardProcessor",
       },
-      PDF: "Processor.pdf",
+      PDF: "/assets/pdfs/Processor.pdf",
     },
   },
   {
@@ -148,7 +148,7 @@ export const projects: ProjectType[] = [
       brief:
         "Worked with 3 other members on training a model to classify handwritten fonts.",
       techs: ["Python", "Scikit-learn", "OpenCV"],
-      PDF: "FontClassifier.pdf",
+      PDF: "/assets/pdfs/FontClassifier.pdf",
     },
   },
   {

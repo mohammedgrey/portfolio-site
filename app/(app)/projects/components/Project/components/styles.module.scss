@@ -1,0 +1,58 @@
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brief {
+  color: var(--text-color);
+  padding: 0px 20px;
+  border-left: 4px solid var(--text-color);
+  overflow-wrap: break-word;
+}
+
+.apiButton {
+  border-radius: 5px;
+  color: white;
+  background-color: #333333;
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.pdfButton {
+  border-radius: 5px;
+  color: white;
+  background-color: #ea4335;
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.tech {
+  color: white;
+  background-color: rgb(41, 54, 71);
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.repoButton {
+  border-radius: 5px;
+  color: white;
+  background-color: rgb(51, 51, 51);
+  padding: 10px 20px;
+  margin: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

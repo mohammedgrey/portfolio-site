@@ -1,0 +1,17 @@
+@-webkit-keyframes show {
+  from {
+    translate: 0px -110%;
+  }
+  to {
+    translate: 0px;
+  }
+}
+
+@keyframes show {
+  from {
+    translate: 0px -110%;
+  }
+  to {
+    translate: 0px;
+  }
+}
