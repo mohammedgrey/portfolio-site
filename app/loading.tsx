@@ -12,7 +12,7 @@ export default function LoadingPage() {
   return (
     <div className="center-content">
       <RiveComponent
-        style={{ width: "500px", maxWidth: "100%", height: "300px" }}
+        style={{ width: "700px", maxWidth: "100%", height: "400px" }}
       />
     </div>
   );
