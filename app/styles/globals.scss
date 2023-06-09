@@ -8,8 +8,13 @@
 //constants
 $max-width: 1200px;
 $common-padding: 16px;
+$common-border-radius: 32px;
 
 :root {
+  --max-width: #{$max-width};
+  --common-padding: #{$common-padding};
+  --common-border-radius: #{$common-border-radius};
+
   @each $color, $value in light.$colors {
     --#{$color}: #{$value};
   }

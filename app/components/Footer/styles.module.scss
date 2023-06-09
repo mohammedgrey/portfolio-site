@@ -1,0 +1,40 @@
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--common-padding);
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 16px;
+  padding-inline: 32px;
+  background-color: var(--card-color);
+  border-radius: 16px;
+  gap: 16px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contactInfo p {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.socials a {
+  font-size: 24px;
+}

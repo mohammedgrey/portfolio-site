@@ -169,41 +169,6 @@ const Contact = () => {
           )}
         </form>
       </div>
-
-      <div className="contact-footer">
-        <div className="footer-left">
-          <p>
-            <i className="fas fa-at"></i> mohammeddsaadd@yahoo.com
-          </p>
-          <p>
-            <i className="fas fa-phone"></i> +20 115 794 3817
-          </p>
-        </div>
-        <div className="footer-right">
-          <div className="social-contact">
-            <i
-              className="fab fa-facebook"
-              onClick={() => {
-                window.open("https://www.facebook.com/mohammeddsaadd");
-              }}
-            ></i>
-            <i
-              className="fab fa-linkedin"
-              onClick={() => {
-                window.open(
-                  "https://www.linkedin.com/in/mohammed-saad-6704711a9/"
-                );
-              }}
-            ></i>
-            <i
-              className="fab fa-github"
-              onClick={() => {
-                window.open("https://github.com/mohammedgrey");
-              }}
-            ></i>
-          </div>
-        </div>
-      </div>
     </>
   );
 };

@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import Light from "components/Home/components/Light/Light";
 import Navbar from "components/Navbar/Navbar";
+import Footer from "./components/Footer";
 
 export const metadata = {
   title: "Mohammed Saad",
@@ -22,6 +23,7 @@ export default function RootLayout({
         <div className="layout-container">
           <main className="main-container">{children}</main>
         </div>
+        <Footer />
       </body>
     </html>
   );
