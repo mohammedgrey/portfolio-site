@@ -6,8 +6,8 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 export default function Light() {
-  const LIGHT_SHADE = "rgba(12, 185, 238, 0.5)";
-  const DARK_SHADE = "rgba(65,20,83,0.7)";
+  const LIGHT_SHADE = "rgba(12, 185, 238, 0.3)";
+  const DARK_SHADE = "rgba(65,20,83,0.5)";
   const NEUTRAL_SHADE = "rgba(255, 255, 255, 0.5)";
 
   const { theme } = usePreferencesStore();
@@ -23,7 +23,7 @@ export default function Light() {
       <div
         style={{
           position: "fixed",
-          background: `radial-gradient(400px circle at 50% 300px, ${color}, transparent 50%)`,
+          background: `radial-gradient(400px circle at 50% 200px, ${color}, transparent 50%)`,
           inset: 0,
           top: 0,
           zIndex: 100,

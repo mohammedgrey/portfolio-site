@@ -16,14 +16,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="top-nav-and-light">
-          <Navbar />
-          <Light />
-        </div>
         <div className="layout-container">
-          <main className="main-container">{children}</main>
+          <div className="top-nav-and-light">
+            <Navbar />
+            <Light />
+          </div>
+          <main>{children}</main>
+          <Footer />
         </div>
-        <Footer />
       </body>
     </html>
   );

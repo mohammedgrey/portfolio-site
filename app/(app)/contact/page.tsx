@@ -1,10 +1,21 @@
 "use client";
-import React, { useState, useRef } from "react";
+import rives from "@/configs/rives";
+import usePreferencesStore from "@/stores/usePreferencesStore";
 import * as emailjs from "@emailjs/browser";
+import React, { useRef, useState } from "react";
 import Recaptcha from "react-recaptcha";
+import { useRive } from "rive-react";
+import { validateEmail } from "./helpers";
+import styles from "./styles.module.scss";
 
 const Contact = () => {
-  const captcha = useRef({});
+  const recaptchaRef = useRef<Recaptcha | null>(null);
+  const { RiveComponent, rive } = useRive({
+    src: rives.input,
+    animations: "idle",
+    autoplay: true,
+  });
+  const { theme } = usePreferencesStore();
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [verified, setVerified] = useState(false);
   const [formData, setFormData] = useState({
@@ -13,22 +24,23 @@ const Contact = () => {
     subject: "",
     message: "",
   });
-  const [dangerAlert, setDangerAlert] = useState(false);
-  const [safeAlert, setSafeAlert] = useState(false);
-  const handleChange = (e) => {
+
+  const handleChange: React.ChangeEventHandler<
+    HTMLInputElement | HTMLTextAreaElement
+  > = (e) => {
     const eName = e.target.name;
     setFormData({ ...formData, [eName]: e.target.value });
   };
-  const handleSubmit = async (e) => {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     try {
       setLoadingEmail(true);
       await emailjs.sendForm(
-        "yahoo",
-        "template_gl6yq68",
-        "sendmeanemail",
-        "user_vkV3ckigggvh4bH9yQ1Nh"
+        process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || "",
+        process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || "",
+        process.env.NEXT_PUBLIC_EMAIL_JS_FORM_ID || "",
+        process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY || ""
       );
       setLoadingEmail(false);
       setFormData({
@@ -38,35 +50,25 @@ const Contact = () => {
         message: "",
       });
 
-      setSafeAlert(true);
-      setTimeout(() => {
-        setSafeAlert(false);
-      }, 1500);
       setVerified(false);
-      if (captcha.current) captcha.current.reset();
+      if (recaptchaRef.current) recaptchaRef.current.reset();
     } catch (err) {
       setLoadingEmail(false);
-      setDangerAlert(true);
-      setTimeout(() => {
-        setDangerAlert(false);
-      }, 1500);
       setVerified(false);
-      if (captcha.current) captcha.current.reset();
+      if (recaptchaRef.current) recaptchaRef.current.reset();
     }
   };
+
+  const isSubmitDisabled =
+    !validateEmail(formData.email) || formData.message === "" || !verified;
   return (
     <>
-      <div className="Contact">
-        {/* <img style={{ position: "absolute", top: "0px" }} src={require("./images/contact.jpg")} /> */}
-        <h1>
-          <i className="far fa-envelope"></i>Contact me through email
-        </h1>
-
-        {/* <p>
-        <i class="fas fa-at"></i>
-        <span style={{ color: "rgb(29,29,29)" }}>mohammeddsaadd@yahoo.com</span>
-      </p> */}
-        <form id="sendmeanemail" onSubmit={handleSubmit}>
+      <div className={styles.container}>
+        <form
+          id={process.env.NEXT_PUBLIC_EMAIL_JS_FORM_ID}
+          onSubmit={handleSubmit}
+          className={styles.form}
+        >
           <label htmlFor="name">Name</label>
           <input
             name="name"
@@ -78,15 +80,7 @@ const Contact = () => {
           <label htmlFor="email">
             Email Address{" "}
             {!validateEmail(formData.email) && (
-              <span
-                style={{
-                  color: "#404040",
-                  fontWeight: 100,
-                  fontFamily: "Georgia",
-                }}
-              >
-                required
-              </span>
+              <span className={styles.requiredHint}>required</span>
             )}
           </label>
           <input
@@ -107,63 +101,45 @@ const Contact = () => {
           <label htmlFor="message">
             Email Body{" "}
             {formData.message === "" && (
-              <span
-                style={{
-                  color: "#404040",
-                  fontWeight: 100,
-                  fontFamily: "Georgia",
-                }}
-              >
-                required
-              </span>
+              <span className={styles.requiredHint}>required</span>
             )}
           </label>
-          <textarea
-            name="message"
-            type="textarea"
-            onChange={handleChange}
-            value={formData.message}
-          ></textarea>
+          <div style={{ position: "relative", width: "100%" }}>
+            <RiveComponent className={styles.textareaRiv} />
+            <textarea
+              onFocus={() => {
+                rive?.play(["yayEntry", "yayLoop"]);
+              }}
+              onBlur={() => {
+                rive?.stop(["yayLoop"]);
+                rive?.play(["idle", "blink"]);
+              }}
+              name="message"
+              onChange={handleChange}
+              value={formData.message}
+            ></textarea>
+          </div>
           <div style={{ margin: "auto auto" }}>
             <Recaptcha
-              // verified={verified}
-              ref={captcha}
-              sitekey="6LclIsoZAAAAAFyAR0s_bfmAgDQhbAUYG_wJVIVZ"
+              ref={recaptchaRef}
+              sitekey={process.env.NEXT_PUBLIC_EMAIL_RECAPTCHA_SITE_KEY}
               render="explicit"
-              onloadCallback={() => {
-                console.log("reCAPTCHA loaded");
-              }}
-              expiredCallback={(res) => {
-                if (!res) {
-                  setVerified(false);
-                }
-              }}
+              expiredCallback={() => setVerified(false)}
               size={"compact"}
-              theme="dark"
+              theme={theme}
               verifyCallback={(res) => {
+                console.log("res ", res);
                 if (res) {
                   setVerified(true);
                 }
               }}
+              onloadCallback={() => console.log("loaded recaptcha")}
             />
           </div>
           {!loadingEmail ? (
-            <input
-              type="submit"
-              value="Send"
-              id={
-                !validateEmail(formData.email) ||
-                formData.message === "" ||
-                !verified
-                  ? "disabled"
-                  : "email-submit"
-              }
-              disabled={
-                !validateEmail(formData.email) ||
-                formData.message === "" ||
-                !verified
-              }
-            ></input>
+            <button className={styles.submitButton} disabled={isSubmitDisabled}>
+              Send
+            </button>
           ) : (
             <div style={{ margin: "auto auto" }}>loading</div>
           )}
@@ -174,9 +150,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-//helper function
-function validateEmail(email) {
-  if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)) return true;
-  return false;
-}

@@ -60,12 +60,8 @@ ul {
   padding-inline: $common-padding;
 }
 
-.main-container {
-  margin-top: 150px;
-}
-
 .top-nav-and-light {
-  position: fixed;
+  position: sticky;
   z-index: 1000;
   top: 0;
   margin: 0 auto;
@@ -74,7 +70,7 @@ ul {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: $common-padding;
+  padding-block: $common-padding;
 }
 
 .description {

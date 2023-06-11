@@ -5,6 +5,7 @@ const rives = {
     darkLight: riv("darkLight.riv"),
   },
   loading: riv("loading.riv"),
+  input: riv("input.riv"),
 };
 
 export default rives;

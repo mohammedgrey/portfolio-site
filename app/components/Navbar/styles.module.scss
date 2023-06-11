@@ -1,13 +1,11 @@
 .nav {
-  margin: 0 auto;
   background-color: var(--card-color);
   padding: 8px 16px;
   border-radius: var(--common-border-radius);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 500px;
-  max-width: 100%;
+  width: 100%;
 }
 
 .navItems {
