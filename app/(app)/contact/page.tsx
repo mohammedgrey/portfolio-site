@@ -60,7 +60,9 @@ const Contact = () => {
   };
 
   const isSubmitDisabled =
-    !validateEmail(formData.email) || formData.message === "" || !verified;
+    !validateEmail(formData.email) || formData.message === "";
+  // || !verified;
+
   return (
     <>
       <div className={styles.container}>

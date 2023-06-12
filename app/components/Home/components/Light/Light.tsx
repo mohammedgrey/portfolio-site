@@ -8,7 +8,7 @@ export default function Light() {
       <div
         style={{
           position: "fixed",
-          background: `radial-gradient(700px circle at 50% 200px, var(--glow-color), transparent 50%)`,
+          background: `radial-gradient(0px circle at 50% 200px, var(--glow-color), transparent 50%)`,
           inset: 0,
           top: 0,
           zIndex: 100,
