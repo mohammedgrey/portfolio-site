@@ -1,3 +1,5 @@
+@import "@/styles/mixins.scss";
+
 .nav {
   background-color: var(--card-color);
   padding: 8px 16px;
@@ -13,6 +15,19 @@
   align-items: center;
   justify-content: center;
   gap: 16px;
+}
+
+.navLinks {
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.mobileMenu {
+  display: none;
+  @include for-phone-only {
+    display: block;
+  }
 }
 
 .navItem {

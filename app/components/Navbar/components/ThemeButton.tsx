@@ -9,7 +9,7 @@ export default function ThemeButton() {
   const { theme, toggleTheme } = useTheme();
 
   const { rive, RiveComponent } = useRive({
-    src: rives.switches.darkLight,
+    src: rives.darkLight,
     animations: theme === Theme.LIGHT ? "idllOff" : "idllOn",
     autoplay: false,
   });
