@@ -19,12 +19,5 @@ export const closeModal = (
   modalRef: MutableRefObject<HTMLDialogElement | null>
 ) => {
   const dialog = modalRef.current;
-
-  dialog?.classList.add("hide");
-  const close = function () {
-    dialog?.classList.remove("hide");
-    dialog?.close();
-    dialog?.removeEventListener("webkitAnimationEnd", close, false);
-  };
-  dialog?.addEventListener("webkitAnimationEnd", close, false);
+  dialog?.close();
 };

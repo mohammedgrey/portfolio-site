@@ -35,10 +35,7 @@ const Project: FC<Props> = ({ project }) => {
         </div>
       </div>
 
-      <dialog
-        ref={modalRef}
-        className={classNames(styles.dialog, "common-modal")}
-      >
+      <dialog ref={modalRef} className="common-modal">
         <ProjectDetails
           project={project}
           onClose={() => closeModal(modalRef)}
