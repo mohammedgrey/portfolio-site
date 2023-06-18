@@ -2,6 +2,7 @@
 @use "./colors/light.scss" as light;
 @use "./colors/common.scss" as common;
 @use "./animations/modal.scss";
+@use "./mixins.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;500;700;900&display=swap");
 
