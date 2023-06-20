@@ -7,6 +7,7 @@ import Recaptcha from "react-recaptcha";
 import { useRive } from "rive-react";
 import { validateEmail } from "./helpers";
 import styles from "./styles.module.scss";
+import useWindowSize from "@/hooks/useWindowSize";
 
 const Contact = () => {
   const recaptchaRef = useRef<Recaptcha | null>(null);
@@ -18,6 +19,8 @@ const Contact = () => {
   const { theme } = usePreferencesStore();
   const [loadingEmail, setLoadingEmail] = useState(false);
   const [verified, setVerified] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
+  const { isExtraSmallPhone } = useWindowSize();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -39,7 +42,7 @@ const Contact = () => {
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || "",
         process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || "",
-        process.env.NEXT_PUBLIC_EMAIL_JS_FORM_ID || "",
+        formRef.current || "",
         process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY || ""
       );
       setLoadingEmail(false);
@@ -60,17 +63,12 @@ const Contact = () => {
   };
 
   const isSubmitDisabled =
-    !validateEmail(formData.email) || formData.message === "";
-  // || !verified;
+    !validateEmail(formData.email) || formData.message === "" || !verified;
 
   return (
     <>
       <div className={styles.container}>
-        <form
-          id={process.env.NEXT_PUBLIC_EMAIL_JS_FORM_ID}
-          onSubmit={handleSubmit}
-          className={styles.form}
-        >
+        <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
           <label htmlFor="name">Name</label>
           <input
             name="name"
@@ -127,15 +125,13 @@ const Contact = () => {
               sitekey={process.env.NEXT_PUBLIC_EMAIL_RECAPTCHA_SITE_KEY}
               render="explicit"
               expiredCallback={() => setVerified(false)}
-              size={"compact"}
+              size={isExtraSmallPhone ? "compact" : "normal"}
               theme={theme}
               verifyCallback={(res) => {
-                console.log("res ", res);
                 if (res) {
                   setVerified(true);
                 }
               }}
-              onloadCallback={() => console.log("loaded recaptcha")}
             />
           </div>
           {!loadingEmail ? (

@@ -26,6 +26,11 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </div>
+        <script
+          src="https://www.recaptcha.net/recaptcha/api.js"
+          async
+          defer
+        ></script>
       </body>
     </html>
   );
