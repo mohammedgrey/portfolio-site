@@ -15,6 +15,8 @@ $common-border-radius: 32px;
   --max-width: #{$max-width};
   --common-padding: #{$common-padding};
   --common-border-radius: #{$common-border-radius};
+  --common-shadow: 0 0 10pt 0.2pt var(--glow-color);
+  --field-hover-shadow: 0 0 5pt 0.5pt var(--glow-color);
 
   @each $color, $value in light.$colors {
     --#{$color}: #{$value};
@@ -47,6 +49,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+a:focus {
+  outline: none;
 }
 
 ul {
