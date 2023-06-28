@@ -1,0 +1,87 @@
+.form {
+  background-color: var(--card-color);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  border-radius: var(--common-border-radius);
+  width: 500px;
+  max-width: 100%;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.form input,
+.form textarea {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  border-radius: var(--common-border-radius);
+  border: solid 1px var(--wood-color);
+  background-color: var(--laptop-color);
+  color: var(--text-color);
+
+  &:focus {
+    outline: none;
+    box-shadow: var(--field-hover-shadow);
+  }
+}
+
+.form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.form label {
+  font-weight: 800;
+  align-self: auto;
+}
+
+.submitButton {
+  width: 100%;
+  border: none;
+  font-weight: 500;
+  text-transform: uppercase;
+  background-color: var(--glow-color);
+  color: white;
+  border-radius: 32px;
+  padding: 12px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--glow-color-dark);
+  }
+}
+.submitButton:disabled,
+.submitButton[disabled] {
+  background-color: var(--wood-color);
+  color: var(--text-color);
+  cursor: default;
+}
+
+.requiredHint {
+  color: var(--description-color);
+  font-weight: 100;
+  font-size: 0.8rem;
+  margin-inline-start: 8px;
+}
+
+.Contact #disabled {
+  background-color: gray;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+.textareaRiv {
+  width: 250px;
+  height: 250px;
+  position: absolute;
+  top: -110px;
+  right: 0px;
+  pointer-events: none;
+}
