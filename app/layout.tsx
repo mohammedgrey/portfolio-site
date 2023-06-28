@@ -2,8 +2,9 @@ import Fireflies from "@/components/Fireflies/Fireflies";
 import "@/styles/globals.scss";
 import Footer from "components/Footer";
 import Navbar from "components/Navbar/Navbar";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Mohammed Saad",
   description: "",
 };
