@@ -1,9 +1,8 @@
 "use client";
-import styles from "./styles.module.scss";
+import Books from "./components/Books/Books";
 import Frame from "./components/Frame/Frame";
 import Laptop from "./components/Laptop/Laptop";
-import Books from "./components/Books/Books";
-import StickyNote from "./components/StickyNote/StickyNote";
+import styles from "./styles.module.scss";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
           style={{ position: "relative", zIndex: 5, paddingBlockStart: "32px" }}
         >
           <Books />
-          {/* <StickyNote>Skills, Technologies & Frameworks</StickyNote> */}
         </div>
       </div>
     </div>
