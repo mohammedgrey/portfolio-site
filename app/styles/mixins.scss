@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin for-laptops-only {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}

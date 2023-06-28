@@ -20,8 +20,9 @@ const useWindowSize = () => {
 
   const isMobilePhoneSize = windowSize.width < 600;
   const isExtraSmallPhone = windowSize.width < 375;
+  const isLaptopSize = windowSize.width >= 1000;
 
-  return { windowSize, isMobilePhoneSize, isExtraSmallPhone };
+  return { windowSize, isMobilePhoneSize, isExtraSmallPhone, isLaptopSize };
 };
 
 export default useWindowSize;

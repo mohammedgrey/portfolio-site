@@ -1,4 +1,5 @@
 @use "../../styles/typed.scss" as type;
+@import "../../styles/mixins.scss";
 
 .home-container {
   background-color: var(--card-color);
@@ -33,5 +34,48 @@
         caret-space: 2px,
       )
     );
+  }
+}
+
+.laptopWrapperLargeScreen {
+  display: none;
+  translate: 0px 100px;
+  z-index: 6;
+  @include for-laptops-only {
+    display: block;
+  }
+}
+
+.laptopWrapperSmallScreen {
+  display: block;
+  translate: 0px 100px;
+  z-index: 6;
+  padding-bottom: 100px;
+  @include for-laptops-only {
+    display: none;
+  }
+  @include for-phone-only {
+    translate: 0px 65px;
+  }
+}
+
+.booksWrapperLargeScreen {
+  display: block;
+  position: relative;
+  z-index: 5;
+  padding-block-start: 32px;
+  @include for-phone-only {
+    display: none;
+  }
+}
+
+.booksWrapperSmallScreen {
+  display: none;
+  position: relative;
+  z-index: 7;
+  padding-block-start: 100px;
+  padding-block-end: 64px;
+  @include for-phone-only {
+    display: block;
   }
 }

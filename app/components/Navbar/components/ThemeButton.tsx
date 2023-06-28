@@ -20,7 +20,7 @@ export default function ThemeButton() {
 
   return (
     <div
-      className="center-content"
+      className="center-content prevent-select"
       style={{ overflow: "hidden", height: "50px" }}
     >
       <RiveComponent

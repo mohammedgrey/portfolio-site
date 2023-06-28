@@ -28,7 +28,7 @@ const Book: FC<Props> = ({ index }) => {
             <div className={styles.cover}></div>
             <div className={styles.contents}>
               <h1>{book.title}</h1>
-              <p style={{ fontSize: "14px" }}>{book.description}</p>
+              <p style={{ fontSize: "12px" }}>{book.description}</p>
             </div>
           </div>
           <div className={styles.top}></div>
