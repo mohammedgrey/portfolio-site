@@ -1,16 +1,19 @@
 "use client";
 import rives from "@/configs/rives";
+import useOnClickOutside from "@/hooks/useOnClickOutside";
 import useUpdateEffect from "@/hooks/useUpdateEffect";
-import { FC, Fragment, useState } from "react";
-import { useRive, useStateMachineInput } from "rive-react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FC, useRef, useState } from "react";
+import { useRive, useStateMachineInput } from "rive-react";
 
 type Props = {
   links: { href: string; text: string }[];
 };
 
 const MobileMenu: FC<Props> = ({ links }) => {
+  const pathname = usePathname();
   const { rive, RiveComponent: MenuButton } = useRive({
     src: rives.menu,
     stateMachines: "switch",
@@ -24,38 +27,55 @@ const MobileMenu: FC<Props> = ({ links }) => {
     switchInput!.value = !switchInput!.value;
   }, [isMenuOpen]);
 
+  useUpdateEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  const menuRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(menuRef, () => setIsMenuOpen(false));
+
   return (
-    <Fragment>
+    <div ref={menuRef}>
       <MenuButton
         style={{ height: "40px", width: "40px", cursor: "pointer" }}
-        onClick={() => setIsMenuOpen((prev) => !prev)}
+        onClick={() => {
+          setIsMenuOpen((prev) => !prev);
+        }}
       />
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            transition={{
-              ease: "easeInOut",
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.5, ease: "linear" }}
             style={{
               position: "fixed",
-              bottom: "0px",
-              right: "0px",
-              left: "0px",
+              top: "86px",
+              left: "16px",
+              right: "16px",
               zIndex: 100,
               backgroundColor: "var(--card-color)",
               padding: "var(--common-padding)",
-              borderRadius: "32px 32px 0px 0px",
+              borderRadius: "32px",
+              overflow: "hidden",
             }}
           >
-            <ul>
+            <ul
+              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+            >
               {links.map(({ href, text }) => (
                 <Link
                   key={href}
                   href={href}
-                  style={{ paddingBlock: "8px", display: "block" }}
+                  style={{
+                    paddingBlock: "8px",
+                    paddingInline: "16px",
+                    borderRadius: "16px",
+                    display: "block",
+                    boxShadow:
+                      pathname === href ? "var(--common-shadow)" : "none",
+                  }}
                 >
                   <li>{text}</li>
                 </Link>
@@ -64,7 +84,7 @@ const MobileMenu: FC<Props> = ({ links }) => {
           </motion.div>
         )}
       </AnimatePresence>
-    </Fragment>
+    </div>
   );
 };
 

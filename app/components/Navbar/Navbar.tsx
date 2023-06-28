@@ -1,10 +1,14 @@
-import Link from "next/link";
-import styles from "./styles.module.scss";
-import ThemeButton from "./components/ThemeButton";
+"use client";
 import { classNames } from "@/helpers";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import MobileMenu from "./components/MobileMenu";
+import ThemeButton from "./components/ThemeButton";
+import styles from "./styles.module.scss";
 
 export default function Navbar() {
+  const pathname = usePathname();
+
   const links = [
     { href: "/", text: "Home" },
     { href: "/projects", text: "Projects" },
@@ -21,7 +25,15 @@ export default function Navbar() {
         <ul className={classNames(styles.navItems, styles.navLinks)}>
           {links.map(({ href, text }) => (
             <Link href={href} key={href}>
-              <li className={styles.navItem}>{text}</li>
+              <li
+                className={styles.navItem}
+                style={{
+                  boxShadow:
+                    href === pathname ? "var(--common-shadow)" : "none",
+                }}
+              >
+                {text}
+              </li>
             </Link>
           ))}
         </ul>

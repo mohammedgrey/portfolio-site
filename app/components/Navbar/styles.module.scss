@@ -38,6 +38,13 @@
   text-align: center;
 }
 
+a:active,
+a:hover {
+  .navItem {
+    box-shadow: var(--common-shadow);
+  }
+}
+
 .navIcon {
   font-size: 2rem;
   cursor: pointer;
