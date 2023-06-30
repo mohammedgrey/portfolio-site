@@ -7,6 +7,7 @@ import React, { useRef, useState } from "react";
 import { useRive } from "rive-react";
 import { validateEmail } from "../helpers";
 import styles from "./styles.module.scss";
+import RecaptchaType from "react-recaptcha";
 
 const Recaptcha = dynamic(() => import("./components/Recaptcha/Recaptcha"), {
   ssr: false,
@@ -14,15 +15,28 @@ const Recaptcha = dynamic(() => import("./components/Recaptcha/Recaptcha"), {
 });
 
 const ContactForm = () => {
-  const recaptchaRef = useRef<any>(null);
+  const recaptchaRef = useRef<RecaptchaType | null>(null);
 
   const { theme } = usePreferencesStore();
-  const { RiveComponent, rive } = useRive({
+  const { RiveComponent: DogRiv, rive: dogRive } = useRive({
     src: rives.input,
     animations: "idle",
     autoplay: true,
   });
+  const { RiveComponent: LoadingSuccessRiv, rive: loadingSuccessRive } =
+    useRive({
+      src: rives.loadingSuccess,
+      animations: "Comp 1",
+      autoplay: false,
+    });
+
+  const { RiveComponent: SendingEmailRiv, rive: sendingEmailRive } = useRive({
+    src: rives.sendingEmail,
+    animations: "mail-send",
+    autoplay: false,
+  });
   const [loadingEmail, setLoadingEmail] = useState(false);
+  const [sentEmail, setSentEmail] = useState(false);
   const [verified, setVerified] = useState(false);
   const formRef = useRef<HTMLFormElement | null>(null);
   const [formData, setFormData] = useState({
@@ -43,13 +57,13 @@ const ContactForm = () => {
 
     try {
       setLoadingEmail(true);
+      sendingEmailRive?.play(["mail-send"]);
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAIL_JS_SERVICE_ID || "",
         process.env.NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID || "",
         formRef.current || "",
         process.env.NEXT_PUBLIC_EMAIL_JS_PUBLIC_KEY || ""
       );
-      setLoadingEmail(false);
       setFormData({
         name: "",
         email: "",
@@ -57,11 +71,18 @@ const ContactForm = () => {
         message: "",
       });
 
-      setVerified(false);
-      if (recaptchaRef.current) recaptchaRef.current.reset();
+      setSentEmail(true);
+      loadingSuccessRive?.play(["Comp 1"]);
+      setTimeout(() => {
+        loadingSuccessRive?.pause(["Comp 1"]);
+      }, 2000);
     } catch (err) {
+      console.error(err);
+    } finally {
       setLoadingEmail(false);
       setVerified(false);
+
+      sendingEmailRive?.pause(["mail-send"]);
       if (recaptchaRef.current) recaptchaRef.current.reset();
     }
   };
@@ -107,21 +128,28 @@ const ContactForm = () => {
         )}
       </label>
       <div style={{ position: "relative", width: "100%" }}>
-        <RiveComponent className={styles.textareaRiv} />
+        <DogRiv className={styles.textareaRiv} />
         <textarea
           onFocus={() => {
-            rive?.play(["yayEntry", "yayLoop"]);
+            dogRive?.play(["yayEntry", "yayLoop"]);
           }}
           onBlur={() => {
-            rive?.stop(["yayLoop"]);
-            rive?.play(["idle", "blink"]);
+            dogRive?.stop(["yayLoop"]);
+            dogRive?.play(["idle", "blink"]);
           }}
           name="message"
           onChange={handleChange}
           value={formData.message}
         ></textarea>
       </div>
-      <div style={{ margin: "auto auto" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          height: "136px",
+          width: "100%",
+        }}
+      >
         <Recaptcha
           key={theme}
           recaptchaRef={recaptchaRef}
@@ -129,13 +157,40 @@ const ContactForm = () => {
           onExpired={() => setVerified(false)}
         />
       </div>
-      {!loadingEmail ? (
+
+      {!loadingEmail && !sentEmail && (
         <button className={styles.submitButton} disabled={isSubmitDisabled}>
           Send
         </button>
-      ) : (
-        <div style={{ margin: "auto auto" }}>loading</div>
       )}
+      <div
+        style={{
+          width: "100%",
+          display: !loadingEmail && !sentEmail ? "none" : "flex",
+          gap: "8px",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "40px",
+        }}
+      >
+        <LoadingSuccessRiv
+          style={{
+            width: "40px",
+            height: "40px",
+            display: sentEmail ? "block" : "none",
+          }}
+        />
+        <SendingEmailRiv
+          style={{
+            width: "40px",
+            height: "40px",
+            display: loadingEmail ? "block" : "none",
+          }}
+        />
+        <p style={{ width: "180px", textAlign: "center" }}>
+          {loadingEmail ? "Sending Email..." : "Email Sent Successfully"}
+        </p>
+      </div>
     </form>
   );
 };

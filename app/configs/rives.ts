@@ -5,6 +5,8 @@ const rives = {
   loading: riv("loading.riv"),
   input: riv("input.riv"),
   menu: riv("menu.riv"),
+  loadingSuccess: riv("loadingSuccess.riv"),
+  sendingEmail: riv("sendingEmail.riv"),
 };
 
 export default rives;
