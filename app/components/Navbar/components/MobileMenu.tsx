@@ -51,14 +51,15 @@ const MobileMenu: FC<Props> = ({ links }) => {
             transition={{ duration: 0.5, ease: "linear" }}
             style={{
               position: "fixed",
-              top: "86px",
+              top: "96px",
               left: "16px",
               right: "16px",
               zIndex: 100,
               backgroundColor: "var(--card-color)",
               padding: "var(--common-padding)",
-              borderRadius: "32px",
+              borderRadius: "24px",
               overflow: "hidden",
+              boxShadow: "var(--card-shadow)",
             }}
           >
             <ul
