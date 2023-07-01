@@ -146,8 +146,9 @@ const ContactForm = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          height: "136px",
+          height: "100px",
           width: "100%",
+          alignItems: "center",
         }}
       >
         <Recaptcha
