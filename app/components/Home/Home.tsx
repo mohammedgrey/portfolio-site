@@ -9,7 +9,7 @@ export default function Home() {
   const { isMobilePhoneSize } = useWindowSize();
 
   const LaptopRendered = (
-    <Laptop scale={isMobilePhoneSize ? 0.4 : 0.45}>
+    <Laptop scale={0.4}>
       <div className={styles["input-wrapper"]}>
         <span className={styles.placeholder}></span>
       </div>
