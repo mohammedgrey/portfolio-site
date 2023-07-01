@@ -1,5 +1,6 @@
 import { SocialType } from "@/types";
-import { BsGithub, BsLinkedin, BsWhatsapp } from "react-icons/bs";
+import { BsGithub, BsWhatsapp } from "react-icons/bs";
+import { FaLinkedinIn } from "react-icons/fa";
 
 export const socials: SocialType[] = [
   {
@@ -10,7 +11,7 @@ export const socials: SocialType[] = [
   {
     title: "Linkedin",
     link: "https://www.linkedin.com/in/mohammed-saad-6704711a9/",
-    icon: BsLinkedin,
+    icon: FaLinkedinIn,
   },
   {
     title: "WhatsApp",

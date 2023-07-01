@@ -2,10 +2,12 @@
 import rives from "@/configs/rives";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
 import useUpdateEffect from "@/hooks/useUpdateEffect";
+import usePreferencesStore from "@/stores/usePreferencesStore";
+import { Theme } from "@/types";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { useRive, useStateMachineInput } from "rive-react";
 
 type Props = {
@@ -14,6 +16,7 @@ type Props = {
 
 const MobileMenu: FC<Props> = ({ links }) => {
   const pathname = usePathname();
+  const { theme } = usePreferencesStore();
   const { rive, RiveComponent: MenuButton } = useRive({
     src: rives.menu,
     stateMachines: "switch",
@@ -34,10 +37,20 @@ const MobileMenu: FC<Props> = ({ links }) => {
   const menuRef = useRef<HTMLDivElement | null>(null);
   useOnClickOutside(menuRef, () => setIsMenuOpen(false));
 
+  const [buttonFilter, setButtonFilter] = useState<string>();
+  useEffect(() => {
+    setButtonFilter(theme === Theme.DARK ? undefined : "brightness(20%)");
+  }, [theme]);
+
   return (
     <div ref={menuRef}>
       <MenuButton
-        style={{ height: "40px", width: "40px", cursor: "pointer" }}
+        style={{
+          height: "40px",
+          width: "40px",
+          cursor: "pointer",
+          filter: buttonFilter,
+        }}
         onClick={() => {
           setIsMenuOpen((prev) => !prev);
         }}

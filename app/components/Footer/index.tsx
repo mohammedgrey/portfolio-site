@@ -3,6 +3,7 @@ import styles from "./styles.module.scss";
 import { personalInfo } from "@/data/personalInfo";
 import { socials } from "@/data/socials";
 import { MdEmail, MdPhone } from "react-icons/md";
+import LinkIconButton from "../LinkIconButton/LinkIconButton";
 
 type Props = {};
 
@@ -33,15 +34,12 @@ const Footer: FC<Props> = ({}) => {
       </div>
       <div className={styles.socials}>
         {socials.map((social) => (
-          <a
-            href={social.link}
+          <LinkIconButton
             key={social.title}
+            link={social.link}
+            Icon={social.icon}
             title={social.title}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <social.icon />
-          </a>
+          />
         ))}
       </div>
     </footer>

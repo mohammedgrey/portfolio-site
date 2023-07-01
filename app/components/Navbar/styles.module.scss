@@ -36,12 +36,8 @@
   background-color: var(--background-color);
   min-width: 80px;
   text-align: center;
-}
-
-a:active,
-a:hover {
-  .navItem {
-    box-shadow: var(--common-shadow);
+  &:hover {
+    box-shadow: var(--common-shadow) !important;
   }
 }
 

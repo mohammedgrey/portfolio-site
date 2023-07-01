@@ -161,7 +161,7 @@ const ContactForm = () => {
 
       {!loadingEmail && !sentEmail && (
         <button className={styles.submitButton} disabled={isSubmitDisabled}>
-          Send
+          Send Email
         </button>
       )}
       <div
