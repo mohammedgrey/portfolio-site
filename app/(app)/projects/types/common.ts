@@ -8,6 +8,9 @@ export type ProjectType = {
   details: {
     brief: string;
     techs: string[];
+    extension?: string;
+    android?: string;
+    ios?: string;
     git?: {
       client?: string;
       server?: string;
@@ -17,4 +20,5 @@ export type ProjectType = {
     carousel?: string[];
     PDF?: string;
   };
+  year: number;
 };

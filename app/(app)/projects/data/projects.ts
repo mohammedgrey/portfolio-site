@@ -4,6 +4,49 @@ import { ProjectType } from "../types/common";
 export const projects: ProjectType[] = [
   {
     id: uuidv4(),
+    title: "MacQueen",
+    type: "Booking App",
+    link: "https://www.macqueen.co/",
+    image: "/assets/images/projects/macqueen/cover.png",
+    details: {
+      android:
+        "https://play.google.com/store/apps/details?id=com.zeidex.macqueen&hl=en&gl=US",
+      ios: "https://apps.apple.com/sa/app/macqueen/id1495088277",
+      brief: "Hotels Booking App.",
+      techs: ["React Native", "ReactJS", "NextJS"],
+    },
+    year: 2023,
+  },
+  {
+    id: uuidv4(),
+    title: "Gebhaly",
+    type: "E-commerce Website",
+    link: "https://www.gebhaly.com/",
+    image: "/assets/images/projects/gebhaly/cover.png",
+    details: {
+      extension:
+        "https://chrome.google.com/webstore/detail/gebhaly/kadfaclbnegniefcmnnlpleggkhmkcne",
+      brief:
+        "An E-commerce website. I was responsible for developing some pages of this website using NextJS. Some of the pages I was responsible for are the blog pages, the Offers page, and the support page. I was also responsible for developing the email templates of the system as well as most of Gebhaly's Chrome Extension. It was developed for Gebhaly's Company.",
+      techs: ["ReactJS", "NextJS"],
+    },
+    year: 2022,
+  },
+  {
+    id: uuidv4(),
+    title: "EG Parcel Express - EPX",
+    type: "Shipping Website",
+    link: "https://www.egparcelexpress.com/",
+    image: "/assets/images/projects/egparcelexpress/cover.png",
+    details: {
+      brief:
+        "An international shipping website. I was responsible for building the whole client side of the application from scratch using NextJS. It was developed for Gebhaly's Company.",
+      techs: ["ReactJS", "NextJS"],
+    },
+    year: 2022,
+  },
+  {
+    id: uuidv4(),
     title: "Look me up",
     type: "Search Engine",
     link: "https://lookkmeup.web.app/",
@@ -18,6 +61,7 @@ export const projects: ProjectType[] = [
       API: "https://lookme-up.herokuapp.com/",
       PDF: "/assets/pdfs/SearchEngine.pdf",
     },
+    year: 2021,
   },
   {
     id: uuidv4(),
@@ -34,6 +78,7 @@ export const projects: ProjectType[] = [
         server: "https://github.com/mohammedgrey/iziserver",
       },
     },
+    year: 2021,
   },
   {
     id: uuidv4(),
@@ -54,6 +99,7 @@ export const projects: ProjectType[] = [
       ],
       PDF: "/assets/pdfs/Datatec.pdf",
     },
+    year: 2020,
   },
 
   {
@@ -69,6 +115,7 @@ export const projects: ProjectType[] = [
         client: "https://github.com/FatemaFawzy/Frontend-Team",
       },
     },
+    year: 2020,
   },
   {
     id: uuidv4(),
@@ -84,6 +131,7 @@ export const projects: ProjectType[] = [
         both: "https://github.com/mohammedgrey/GameEngine",
       },
     },
+    year: 2022,
   },
   {
     id: uuidv4(),
@@ -101,6 +149,7 @@ export const projects: ProjectType[] = [
 
       PDF: "/assets/pdfs/ImageProcessing.pdf",
     },
+    year: 2022,
   },
   {
     id: uuidv4(),
@@ -117,6 +166,7 @@ export const projects: ProjectType[] = [
       },
       PDF: "/assets/pdfs/Processor.pdf",
     },
+    year: 2021,
   },
   {
     id: uuidv4(),
@@ -130,6 +180,7 @@ export const projects: ProjectType[] = [
       techs: ["Python", "Scikit-learn", "OpenCV"],
       PDF: "/assets/pdfs/FontClassifier.pdf",
     },
+    year: 2019,
   },
   {
     id: uuidv4(),
@@ -143,5 +194,6 @@ export const projects: ProjectType[] = [
         both: "https://github.com/mohammedgrey/SelectiveRepeatProtocol",
       },
     },
+    year: 2019,
   },
 ];

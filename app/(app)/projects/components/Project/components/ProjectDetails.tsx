@@ -1,11 +1,18 @@
 import { ProjectType } from "@/(app)/projects/types/common";
-import { FC, Fragment } from "react";
-import { BsFileEarmarkPdf } from "react-icons/bs";
-import { MdClose, MdSettingsSuggest } from "react-icons/md";
-import { AiFillGithub } from "react-icons/ai";
-import { BiGitBranch } from "react-icons/bi";
-import styles from "./styles.module.scss";
 import { capitalize } from "@/helpers";
+import { FC, Fragment } from "react";
+import {
+  AiFillGithub,
+  AiOutlineLink,
+  AiFillAndroid,
+  AiFillApple,
+  AiFillApi,
+} from "react-icons/ai";
+import { BiExtension, BiGitBranch } from "react-icons/bi";
+import { BsFilePdf } from "react-icons/bs";
+import { MdClose, MdSettingsSuggest } from "react-icons/md";
+import ButtonLink from "./ButtonLink";
+import styles from "./styles.module.scss";
 
 type Props = {
   project: ProjectType;
@@ -23,28 +30,36 @@ const ProjectDetails: FC<Props> = ({ project, onClose }) => {
         </button>
       </div>
       <p className={styles.brief}>{project.details.brief}</p>
-      <div>
-        {project.details.API !== null && (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.apiButton}
-            href={project.details.API}
-          >
-            API
-          </a>
-        )}
-
-        {project.details.PDF && (
-          <a
-            className={styles.pdfButton}
-            target="_blank"
-            rel="noopener noreferrer"
-            href={project.details.PDF}
-          >
-            <BsFileEarmarkPdf style={{ marginRight: "5px" }} /> Report
-          </a>
-        )}
+      <div className={styles.links}>
+        <ButtonLink
+          Icon={AiOutlineLink}
+          title={"Website"}
+          link={project.link}
+        />
+        <ButtonLink Icon={AiFillApi} title={"API"} link={project.details.API} />
+        <ButtonLink
+          Icon={BiExtension}
+          title={"Extension"}
+          link={project.details.extension}
+        />
+        <ButtonLink
+          Icon={AiFillApple}
+          title={"IOS"}
+          link={project.details.ios}
+          color="#000000"
+        />
+        <ButtonLink
+          Icon={AiFillAndroid}
+          title={"Android"}
+          link={project.details.android}
+          color="#7cb342"
+        />
+        <ButtonLink
+          Icon={BsFilePdf}
+          title={"Document"}
+          link={project.details.PDF}
+          color="#ea4335"
+        />
       </div>
       <h3>
         <MdSettingsSuggest /> Technologies

@@ -5,4 +5,24 @@
   flex-direction: column;
   gap: 32px;
   padding-block: 16px;
+  width: 100%;
+}
+
+.yearText {
+  color: var(--description-color);
+  position: relative;
+  background-color: var(--background-color);
+  padding-inline: 16px;
+}
+
+.yearText::before,
+.yearText::after {
+  content: "";
+  background-color: var(--description-color);
+  width: 240px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  translate: -50%;
+  z-index: -100 !important;
 }

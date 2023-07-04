@@ -21,3 +21,14 @@ export const closeModal = (
   const dialog = modalRef.current;
   dialog?.close();
 };
+
+export const groupBy = <T = any>(array: T[], groupingField: keyof T) => {
+  return array.reduce((acc, item) => {
+    let key = item[groupingField] as string | number;
+    if (!acc[key]) {
+      acc[key] = [];
+    }
+    acc[key].push(item);
+    return acc;
+  }, {} as Record<string, T[]>);
+};

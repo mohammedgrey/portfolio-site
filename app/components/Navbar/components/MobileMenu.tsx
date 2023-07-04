@@ -64,34 +64,36 @@ const MobileMenu: FC<Props> = ({ links }) => {
             transition={{ duration: 0.5, ease: "linear" }}
             style={{
               position: "fixed",
-              top: "96px",
+              top: "86px",
               left: "16px",
               right: "16px",
               zIndex: 100,
-              backgroundColor: "var(--card-color)",
               padding: "var(--common-padding)",
               borderRadius: "24px",
               overflow: "hidden",
-              boxShadow: "var(--card-shadow)",
             }}
           >
             <ul
-              style={{ display: "flex", flexDirection: "column", gap: "8px" }}
+              style={{ display: "flex", flexDirection: "column", gap: "16px" }}
             >
               {links.map(({ href, text }) => (
                 <Link
+                  className="prevent-select"
                   key={href}
                   href={href}
                   style={{
-                    paddingBlock: "8px",
+                    paddingBlock: "12px",
                     paddingInline: "16px",
-                    borderRadius: "16px",
+                    borderRadius: "24px",
                     display: "block",
+                    backgroundColor: "var(--background-color)",
                     boxShadow:
-                      pathname === href ? "var(--common-shadow)" : "none",
+                      pathname === href
+                        ? "var(--common-shadow)"
+                        : "var(--card-shadow-hover)",
                   }}
                 >
-                  <li>{text}</li>
+                  <li className="prevent-select">{text}</li>
                 </Link>
               ))}
             </ul>

@@ -3,9 +3,15 @@ import LinkIconButton from "@/components/LinkIconButton/LinkIconButton";
 import { closeModal, openModal } from "@/helpers";
 import Image from "next/image";
 import { FC, Fragment, useRef } from "react";
-import { AiFillGithub, AiOutlineLink } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiOutlineLink,
+  AiFillAndroid,
+  AiFillApple,
+} from "react-icons/ai";
 import { BsFilePdf } from "react-icons/bs";
 import { MdInfo } from "react-icons/md";
+import { BiExtension } from "react-icons/bi";
 import { ProjectType } from "../../types/common";
 import ProjectDetails from "./components/ProjectDetails";
 import styles from "./styles.module.scss";
@@ -44,6 +50,16 @@ const Project: FC<Props> = ({ project }) => {
                 title={"Website"}
               />
               <LinkIconButton
+                link={project.details.android}
+                Icon={AiFillAndroid}
+                title={"Android"}
+              />
+              <LinkIconButton
+                link={project.details.ios}
+                Icon={AiFillApple}
+                title={"IOS"}
+              />
+              <LinkIconButton
                 link={
                   project.details.git?.both ??
                   project.details.git?.client ??
@@ -56,6 +72,11 @@ const Project: FC<Props> = ({ project }) => {
                 link={project.details.PDF}
                 Icon={BsFilePdf}
                 title={"PDF Document"}
+              />
+              <LinkIconButton
+                link={project.details.extension}
+                Icon={BiExtension}
+                title={"Extension"}
               />
             </div>
           </div>
