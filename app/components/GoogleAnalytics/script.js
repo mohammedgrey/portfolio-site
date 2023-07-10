@@ -4,4 +4,4 @@ function gtag() {
 }
 gtag("js", new Date());
 
-gtag("config", "G-8DW5JBSW8D");
+gtag("config", process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_CODE);

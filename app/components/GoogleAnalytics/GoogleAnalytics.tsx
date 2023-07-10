@@ -8,7 +8,7 @@ const GoogleAnalytics: FC<Props> = ({}) => {
     <Fragment>
       <Script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-8DW5JBSW8D"
+        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_CODE}`}
       ></Script>
       <Script src="./script.js"></Script>
     </Fragment>
