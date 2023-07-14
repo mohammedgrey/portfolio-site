@@ -7,7 +7,10 @@ import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 
 export const metadata: Metadata = {
   title: "Mohammed Saad",
-  description: "",
+  description:
+    "I am a software engineer who is passionate about creating aesthetically pleasing and fully functioning websites from the inside out.",
+  keywords:
+    "software, developer, frontend, engineering, backend, fullstack, websites, development, coding, agile, javascript, typescript, react, native, node, express, mongodb, firebase, sql, git, vue, web, mohammed, saad, muhammad, mohamed",
 };
 
 export default function RootLayout({
