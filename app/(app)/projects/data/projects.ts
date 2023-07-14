@@ -4,6 +4,20 @@ import { ProjectType } from "../types/common";
 export const projects: ProjectType[] = [
   {
     id: uuidv4(),
+    title: "At Home Doc",
+    type: "ERP System",
+    image: "/assets/images/projects/ahd/cover.png",
+    link: "https://ahd-dashboard.metadoc.care/",
+    details: {
+      PDF: "/assets/pdfs/ahd.pdf",
+      brief:
+        "An ERP system that is based on dynamic modules and micro services. A Dynamic website that is based n the data obtained from the server to view and mutate the modules that the user has access to.",
+      techs: ["React", "NextJS", "GraphQl"],
+    },
+    year: 2023,
+  },
+  {
+    id: uuidv4(),
     title: "MacQueen",
     type: "Booking App",
     link: "https://www.macqueen.co/",
@@ -180,7 +194,7 @@ export const projects: ProjectType[] = [
       techs: ["Python", "Scikit-learn", "OpenCV"],
       PDF: "/assets/pdfs/FontClassifier.pdf",
     },
-    year: 2019,
+    year: 2020,
   },
   {
     id: uuidv4(),
@@ -194,6 +208,6 @@ export const projects: ProjectType[] = [
         both: "https://github.com/mohammedgrey/SelectiveRepeatProtocol",
       },
     },
-    year: 2019,
+    year: 2022,
   },
 ];
