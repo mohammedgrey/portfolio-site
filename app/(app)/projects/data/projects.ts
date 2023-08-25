@@ -11,7 +11,7 @@ export const projects: ProjectType[] = [
     details: {
       PDF: "/assets/pdfs/ahd.pdf",
       brief:
-        "An ERP system that is based on dynamic modules and micro services. A Dynamic website that is based n the data obtained from the server to view and mutate the modules that the user has access to.",
+        "An ERP system that is based on dynamic modules and micro services. A Dynamic website that is based on the data obtained from the server to view and mutate the modules that the user has access to. I was responsible for building the dynamic widgets and providing the configuration objects for the backend to use to render the UI dynamically.",
       techs: ["React", "NextJS", "GraphQl"],
     },
     year: 2023,
@@ -26,7 +26,8 @@ export const projects: ProjectType[] = [
       android:
         "https://play.google.com/store/apps/details?id=com.zeidex.macqueen&hl=en&gl=US",
       ios: "https://apps.apple.com/sa/app/macqueen/id1495088277",
-      brief: "Hotels Booking App.",
+      brief:
+        "Hotels Booking App. I was responsible for developing some of the app screens for android and ios using React Native. As well as solving bugs and refactoring the code of both the mobile app and the website.",
       techs: ["React Native", "ReactJS", "NextJS"],
     },
     year: 2023,
