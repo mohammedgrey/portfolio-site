@@ -15,7 +15,7 @@ const usePreferencesStore = create<PreferencesStoreType>()(
     (set, get) => ({
       locale: Locale.EN,
       setLocale: (locale) => set({ locale }),
-      theme: Theme.DARK,
+      theme: Theme.LIGHT,
       setTheme: (theme) => set({ theme }),
       toggleTheme: () =>
         set((state) => ({
