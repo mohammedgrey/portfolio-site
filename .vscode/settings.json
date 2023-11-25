@@ -3,9 +3,9 @@
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "cSpell.words": [
     "cloudinary",
+    "Dawood",
     "pdfs",
     "Recaptcha",
-    "Saad",
     "sitekey",
     "uuidv"
   ]
