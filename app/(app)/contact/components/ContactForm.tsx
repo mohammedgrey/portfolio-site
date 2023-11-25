@@ -91,108 +91,113 @@ const ContactForm = () => {
     !validateEmail(formData.email) || formData.message === "" || !verified;
 
   return (
-    <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
-      <label htmlFor="name">Name</label>
-      <input
-        name="name"
-        type="text"
-        onChange={handleChange}
-        value={formData.name}
-        placeholder="Optional, but preferable."
-      ></input>
-      <label htmlFor="email">
-        Email Address{" "}
-        {!validateEmail(formData.email) && (
-          <span className={styles.requiredHint}>required</span>
-        )}
-      </label>
-      <input
-        name="email"
-        type="email"
-        onChange={handleChange}
-        value={formData.email}
-        placeholder="Required, so I can contact you back."
-      ></input>
-      <label htmlFor="subject">Email Subject</label>
-      <input
-        name="subject"
-        type="text"
-        onChange={handleChange}
-        value={formData.subject}
-        placeholder="Optional, but preferable."
-      ></input>
-      <label htmlFor="message">
-        Email Body{" "}
-        {formData.message === "" && (
-          <span className={styles.requiredHint}>required</span>
-        )}
-      </label>
-      <div style={{ position: "relative", width: "100%" }}>
-        <DogRiv className={styles.textareaRiv} />
-        <textarea
-          onFocus={() => {
-            dogRive?.play(["yayEntry", "yayLoop"]);
-          }}
-          onBlur={() => {
-            dogRive?.stop(["yayLoop"]);
-            dogRive?.play(["idle", "blink"]);
-          }}
-          name="message"
+    <div className={styles.partContainer}>
+      <h2 className={styles.partTitle}>
+        <span style={{ fontSize: "14px" }}>Or</span> send me an email directly
+      </h2>
+      <form ref={formRef} onSubmit={handleSubmit} className={styles.form}>
+        <label htmlFor="name">Name</label>
+        <input
+          name="name"
+          type="text"
           onChange={handleChange}
-          value={formData.message}
-        ></textarea>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          height: "100px",
-          width: "100%",
-          alignItems: "center",
-        }}
-      >
-        <Recaptcha
-          key={theme}
-          recaptchaRef={recaptchaRef}
-          onVerified={() => setVerified(true)}
-          onExpired={() => setVerified(false)}
-        />
-      </div>
+          value={formData.name}
+          placeholder="Optional, but preferable."
+        ></input>
+        <label htmlFor="email">
+          Email Address{" "}
+          {!validateEmail(formData.email) && (
+            <span className={styles.requiredHint}>required</span>
+          )}
+        </label>
+        <input
+          name="email"
+          type="email"
+          onChange={handleChange}
+          value={formData.email}
+          placeholder="Required, so I can contact you back."
+        ></input>
+        <label htmlFor="subject">Email Subject</label>
+        <input
+          name="subject"
+          type="text"
+          onChange={handleChange}
+          value={formData.subject}
+          placeholder="Optional, but preferable."
+        ></input>
+        <label htmlFor="message">
+          Email Body{" "}
+          {formData.message === "" && (
+            <span className={styles.requiredHint}>required</span>
+          )}
+        </label>
+        <div style={{ position: "relative", width: "100%" }}>
+          <DogRiv className={styles.textareaRiv} />
+          <textarea
+            onFocus={() => {
+              dogRive?.play(["yayEntry", "yayLoop"]);
+            }}
+            onBlur={() => {
+              dogRive?.stop(["yayLoop"]);
+              dogRive?.play(["idle", "blink"]);
+            }}
+            name="message"
+            onChange={handleChange}
+            value={formData.message}
+          ></textarea>
+        </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            height: "100px",
+            width: "100%",
+            alignItems: "center",
+          }}
+        >
+          <Recaptcha
+            key={theme}
+            recaptchaRef={recaptchaRef}
+            onVerified={() => setVerified(true)}
+            onExpired={() => setVerified(false)}
+          />
+        </div>
 
-      {!loadingEmail && !sentEmail && (
-        <button className={styles.submitButton} disabled={isSubmitDisabled}>
-          Send Email
-        </button>
-      )}
-      <div
-        style={{
-          width: "100%",
-          display: !loadingEmail && !sentEmail ? "none" : "flex",
-          gap: "8px",
-          alignItems: "center",
-          justifyContent: "center",
-          height: "40px",
-        }}
-      >
-        <LoadingSuccessRiv
+        {!loadingEmail && !sentEmail && (
+          <button className={styles.submitButton} disabled={isSubmitDisabled}>
+            Send Email
+          </button>
+        )}
+        <div
           style={{
-            width: "40px",
+            width: "100%",
+            display: !loadingEmail && !sentEmail ? "none" : "flex",
+            gap: "8px",
+            alignItems: "center",
+            justifyContent: "center",
             height: "40px",
-            display: sentEmail ? "block" : "none",
           }}
-        />
-        <SendingEmailRiv
-          style={{
-            width: "40px",
-            height: "40px",
-            display: loadingEmail ? "block" : "none",
-          }}
-        />
-        <p style={{ width: "180px", textAlign: "center" }}>
-          {loadingEmail ? "Sending Email..." : "Email Sent Successfully"}
-        </p>
-      </div>
-    </form>
+        >
+          <LoadingSuccessRiv
+            style={{
+              width: "40px",
+              height: "40px",
+              display: sentEmail ? "block" : "none",
+            }}
+          />
+          <SendingEmailRiv
+            style={{
+              width: "40px",
+              height: "40px",
+              display: loadingEmail ? "block" : "none",
+            }}
+          />
+          <p style={{ width: "180px", textAlign: "center" }}>
+            {loadingEmail ? "Sending Email..." : "Email Sent Successfully"}
+          </p>
+        </div>
+      </form>
+    </div>
   );
 };
 

@@ -1,0 +1,37 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--common-padding);
+  border-radius: var(--common-border-radius);
+  border: none;
+  color: var(--title-color);
+  background-color: var(--card-color);
+  gap: 16px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: var(--common-shadow);
+  }
+  flex-grow: 1;
+}
+
+.cardContainer {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  flex-grow: 1;
+}
+
+.copyButton {
+  border: none;
+  color: var(--title-color);
+  background-color: var(--card-color);
+  cursor: pointer;
+  &:hover {
+    box-shadow: var(--common-shadow);
+  }
+  border-radius: 50%;
+  padding: 16px;
+  height: 53.5px;
+  width: 53.5px;
+}

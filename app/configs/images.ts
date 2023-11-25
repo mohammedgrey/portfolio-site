@@ -13,7 +13,7 @@ const images = {
     },
     frame: {
       outline: image("home/frame/outline.png"),
-      photo: image("home/frame/photo.png"),
+      photo: image("home/frame/photo.jpg"),
     },
     books: {
       cleanCode: image("home/books/cleanCode.png"),
