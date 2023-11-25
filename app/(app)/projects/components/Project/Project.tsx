@@ -27,22 +27,11 @@ const Project: FC<Props> = ({ project }) => {
   return (
     <Fragment>
       <div className={styles.card}>
-        <Image
-          src={image}
-          alt={title}
-          className={styles.image}
-          quality={50}
-          width={150}
-          height={150}
-        />
-
         <div className={styles.details}>
           <div>
-            <h2>
-              {title}
-              <br />
-              <span>{type}</span>
-            </h2>
+            <h2>{title}</h2>
+            <p>{type}</p>
+            <br />
             <div className={styles.iconButtons}>
               <LinkIconButton
                 link={project.link}
