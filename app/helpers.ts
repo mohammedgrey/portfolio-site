@@ -32,3 +32,9 @@ export const groupBy = <T = any>(array: T[], groupingField: keyof T) => {
     return acc;
   }, {} as Record<string, T[]>);
 };
+
+export const isMobile = () => {
+  const regex =
+    /Mobi|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+  return regex.test(window.navigator.userAgent);
+};
