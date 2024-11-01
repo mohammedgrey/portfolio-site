@@ -10,7 +10,7 @@ export const socials: SocialType[] = [
   },
   {
     title: "Linkedin",
-    link: "https://www.linkedin.com/in/mohammed-saad-6704711a9/",
+    link: "https://www.linkedin.com/in/mohammeddsaadd",
     icon: FaLinkedinIn,
   },
   {
