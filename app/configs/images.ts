@@ -14,6 +14,7 @@ const images = {
     frame: {
       outline: image("home/frame/outline.png"),
       photo: image("home/frame/photo.png"),
+      cover: image("home/frame/cover.jpg"),
     },
     books: {
       cleanCode: image("home/books/cleanCode.png"),
