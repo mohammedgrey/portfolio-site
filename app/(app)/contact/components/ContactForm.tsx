@@ -4,10 +4,10 @@ import usePreferencesStore from "@/stores/usePreferencesStore";
 import * as emailjs from "@emailjs/browser";
 import dynamic from "next/dynamic";
 import React, { useRef, useState } from "react";
+import RecaptchaType from "react-recaptcha";
 import { useRive } from "rive-react";
 import { validateEmail } from "../helpers";
 import styles from "./styles.module.scss";
-import RecaptchaType from "react-recaptcha";
 
 const Recaptcha = dynamic(() => import("./components/Recaptcha/Recaptcha"), {
   ssr: false,
@@ -18,11 +18,6 @@ const ContactForm = () => {
   const recaptchaRef = useRef<RecaptchaType | null>(null);
 
   const { theme } = usePreferencesStore();
-  const { RiveComponent: DogRiv, rive: dogRive } = useRive({
-    src: rives.input,
-    animations: "idle",
-    autoplay: true,
-  });
   const { RiveComponent: LoadingSuccessRiv, rive: loadingSuccessRive } =
     useRive({
       src: rives.loadingSuccess,
@@ -132,15 +127,7 @@ const ContactForm = () => {
           )}
         </label>
         <div style={{ position: "relative", width: "100%" }}>
-          <DogRiv className={styles.textareaRiv} />
           <textarea
-            onFocus={() => {
-              dogRive?.play(["yayEntry", "yayLoop"]);
-            }}
-            onBlur={() => {
-              dogRive?.stop(["yayLoop"]);
-              dogRive?.play(["idle", "blink"]);
-            }}
             name="message"
             onChange={handleChange}
             value={formData.message}
