@@ -85,5 +85,11 @@
         margin-top: 5px;
       }
     }
+
+    p {
+      @include for-phone-only {
+        text-align: center;
+      }
+    }
   }
 }

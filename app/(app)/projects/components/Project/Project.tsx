@@ -1,7 +1,6 @@
 "use client";
 import LinkIconButton from "@/components/LinkIconButton/LinkIconButton";
 import { closeModal, openModal } from "@/helpers";
-import Image from "next/image";
 import { FC, Fragment, useRef } from "react";
 import {
   AiFillGithub,
@@ -22,7 +21,7 @@ type Props = {
 
 const Project: FC<Props> = ({ project }) => {
   const modalRef = useRef<HTMLDialogElement | null>(null);
-  const { image, title, type } = project;
+  const { title, type } = project;
 
   return (
     <Fragment>

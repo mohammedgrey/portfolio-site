@@ -26,7 +26,7 @@ const ProjectDetails: FC<Props> = ({ project, onClose }) => {
       <div className={styles.top}>
         <h1>{project.title}</h1>
         <button className="icon-button" onClick={onClose}>
-          <MdClose />
+          <MdClose size={24} />
         </button>
       </div>
       <p className={styles.brief}>{project.details.brief}</p>
